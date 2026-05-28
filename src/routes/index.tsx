@@ -118,8 +118,8 @@ function Index() {
               an MBA from the Tuck School of Business at Dartmouth.
             </p>
 
-            {/* Footer links */}
-            <div className="flex flex-col items-center gap-8 pt-10 sm:flex-row sm:items-center sm:justify-start sm:gap-14">
+            {/* Footer links — centered under the text column */}
+            <div className="flex flex-col items-center justify-center gap-6 pt-10 sm:flex-row sm:gap-10">
               <a
                 href="https://www.linkedin.com/in/jimspare"
                 target="_blank"
@@ -130,7 +130,7 @@ function Index() {
                 <img
                   src={linkedinBadge}
                   alt="LinkedIn"
-                  className="h-9 w-auto sm:h-10"
+                  className="h-7 w-auto sm:h-[30px]"
                 />
               </a>
               <a
@@ -138,7 +138,7 @@ function Index() {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ fontFamily: "var(--font-mark)" }}
-                className="text-2xl uppercase leading-none tracking-[0.06em] text-[oklch(0.92_0_0)] transition-opacity hover:opacity-80 sm:text-[28px]"
+                className="text-lg uppercase leading-none tracking-[0.06em] text-[oklch(0.92_0_0)] transition-opacity hover:opacity-80 sm:text-[21px]"
               >
                 Buildacious
               </a>
