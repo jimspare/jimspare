@@ -42,7 +42,7 @@ export function ShaderBackground() {
 
       void main(){
         vec2 uv = (gl_FragCoord.xy - 0.5*u_res) / u_res.y;
-        float t = u_time * 0.025;
+        float t = u_time * 0.030;
 
         // slow drifting flow field — gives the texture/grain seen in Framer
         vec2 q = uv*1.6 + vec2(t*0.6, -t*0.4);
@@ -61,32 +61,32 @@ export function ShaderBackground() {
         vec3 cIndigo = vec3(0.067, 0.110, 0.306);
         vec3 cPurple = vec3(0.239, 0.075, 0.373);
 
-        // dark base so the overall palette stays subdued
-        vec3 base = mix(vec3(0.02, 0.015, 0.04), cIndigo * 0.55, 0.55);
+        // darker base for more dynamic range (was 0.02/0.015/0.04 * 0.55 mix)
+        vec3 base = mix(vec3(0.012, 0.009, 0.024), cIndigo * 0.55, 0.50);
 
         vec3 col = base;
-        col += cSlate  * d1 * 0.42;
-        col += cPurple * d2 * 0.55;
-        col += cIndigo * d3 * 0.60;
+        col += cSlate  * d1 * 0.50;
+        col += cPurple * d2 * 0.65;
+        col += cIndigo * d3 * 0.70;
 
         // textured wash — gives the moving grain/streaks
         float wash = pow(n, 1.3);
-        col += mix(cIndigo, cPurple, wash) * wash * 0.30;
+        col += mix(cIndigo, cPurple, wash) * wash * 0.35;
 
         // subtle vertical streak texture
         float streak = fbm(vec2(uv.x*8.0, uv.y*1.2 + t*0.8));
         col += vec3(0.06, 0.04, 0.10) * (streak - 0.5) * 0.6;
 
-        // vignette
+        // vignette — deeper darks at edges
         float v = smoothstep(1.5, 0.15, length(uv));
-        col *= mix(0.75, 1.0, v);
+        col *= mix(0.65, 1.0, v);
 
         // fine grain
         float g = (hash(gl_FragCoord.xy + u_time) - 0.5) * 0.03;
         col += g;
 
-        // overall ceiling so it never blows out
-        col = min(col, vec3(0.42, 0.36, 0.55));
+        // raised ceiling so brightest hotspots lift ~15%
+        col = min(col, vec3(0.49, 0.42, 0.63));
 
         gl_FragColor = vec4(col, 1.0);
       }
