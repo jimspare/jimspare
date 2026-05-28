@@ -146,7 +146,7 @@ function Index() {
               >
                 <img
                   src={linkedinBadge}
-                  alt="LinkedIn"
+                  alt="LinkedIn profile badge"
                   className="h-7 w-auto sm:h-[30px]"
                 />
               </a>
