@@ -13,6 +13,13 @@ if (!main) {
 
 mkdirSync(serverDir, { recursive: true });
 
+// NOTE: We intentionally let Wrangler bundle the worker (default esbuild path).
+// Previously we set `no_bundle: true` to upload nitro's pre-bundled chunks as-is,
+// but Cloudflare's module uploader flattened/renamed the underscore-prefixed
+// chunk dirs (`_libs/`, `_ssr/`) under `assets/` and dropped extensions, which
+// broke imports like `../_libs/h3-v2.mjs` at runtime
+// (Error: No such module "assets/h3-v2").
+// Letting Wrangler re-bundle resolves all static imports into a single worker.
 writeFileSync(
   `${serverDir}/wrangler.json`,
   `${JSON.stringify(
@@ -25,21 +32,12 @@ writeFileSync(
       },
       name: "jimspare",
       compatibility_flags: ["nodejs_compat"],
-      no_bundle: true,
-      find_additional_modules: true,
       observability: {
         logs: {
           enabled: true,
           invocation_logs: true,
         },
       },
-      rules: [
-        {
-          type: "ESModule",
-          globs: ["**/*.mjs", "**/*.js", "**/h3-v2", "**/h3"],
-        },
-      ],
-
     },
     null,
     2,
