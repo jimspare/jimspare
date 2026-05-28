@@ -28,12 +28,28 @@ export const Route = createFileRoute("/")({
         content:
           "Jim Spare is a strategic transformation leader for AI-era enterprise software businesses.",
       },
-      { name: "twitter:image", content: "/og-image.png" },
+      { name: "twitter:image", content: "https://jimspare.lovable.app/og-image.png" },
     ],
     links: [
-      { rel: "canonical", href: "/" },
+      { rel: "canonical", href: "https://jimspare.lovable.app/" },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Jim Spare",
+          jobTitle: "Strategic growth leader",
+          url: "https://jimspare.lovable.app/",
+          sameAs: [
+            "https://www.linkedin.com/in/jimspare",
+            "https://www.buildacious.com/",
+          ],
+        }),
+      },
     ],
   }),
   component: Index,
