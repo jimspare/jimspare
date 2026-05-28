@@ -19,8 +19,8 @@ export const Route = createFileRoute("/")({
           "Jim Spare is a strategic transformation leader for AI-era enterprise software businesses.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "/og-image.png" },
-      { property: "og:url", content: "/" },
+      { property: "og:image", content: "https://jimspare.lovable.app/og-image.png" },
+      { property: "og:url", content: "https://jimspare.lovable.app/" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Jim Spare | Strategic growth leader." },
       {
@@ -28,12 +28,28 @@ export const Route = createFileRoute("/")({
         content:
           "Jim Spare is a strategic transformation leader for AI-era enterprise software businesses.",
       },
-      { name: "twitter:image", content: "/og-image.png" },
+      { name: "twitter:image", content: "https://jimspare.lovable.app/og-image.png" },
     ],
     links: [
-      { rel: "canonical", href: "/" },
+      { rel: "canonical", href: "https://jimspare.lovable.app/" },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Jim Spare",
+          jobTitle: "Strategic growth leader",
+          url: "https://jimspare.lovable.app/",
+          sameAs: [
+            "https://www.linkedin.com/in/jimspare",
+            "https://www.buildacious.com/",
+          ],
+        }),
+      },
     ],
   }),
   component: Index,
@@ -44,6 +60,7 @@ function Index() {
     <>
       <ShaderBackground />
       <main className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col px-5 pb-16 pt-6 sm:px-8 sm:pt-8 lg:px-12">
+        <h1 className="sr-only">Jim Spare — Strategic Growth Leader</h1>
         {/* Header */}
         <header className="flex items-center gap-4 sm:gap-6">
           <a
@@ -129,7 +146,7 @@ function Index() {
               >
                 <img
                   src={linkedinBadge}
-                  alt="LinkedIn"
+                  alt="LinkedIn profile badge"
                   className="h-7 w-auto sm:h-[30px]"
                 />
               </a>

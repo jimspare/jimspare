@@ -1,0 +1,7 @@
+# Jim Spare
+
+> Personal site of Jim Spare — strategic transformation leader for AI-era enterprise software businesses.
+
+## Pages
+
+- [Home](/): Bio, career highlights, and links to LinkedIn and Buildacious.

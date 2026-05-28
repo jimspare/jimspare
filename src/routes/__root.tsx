@@ -94,6 +94,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Inter:wght@400;500&family=Montserrat:ital,wght@0,400;0,600;1,800&display=swap",
       },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Jim Spare",
+          url: "https://jimspare.lovable.app/",
+          description:
+            "Jim Spare is a strategic transformation leader for AI-era enterprise software businesses.",
+        }),
+      },
+    ],
 
   }),
   shellComponent: RootShell,
