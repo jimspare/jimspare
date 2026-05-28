@@ -1,6 +1,7 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,800&family=Inter:wght@400;500&family=Bungee+Inline&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
@@ -62,7 +63,17 @@
 }
 
 :root {
+  --font-display: "Montserrat", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mark: "Bungee Inline", "Montserrat", sans-serif;
   --radius: 0.625rem;
+  --background: oklch(0.04 0 0);
+  --foreground: oklch(0.985 0 0);
+  --muted-foreground: oklch(0.78 0.01 270);
+  --border-faint: oklch(1 0 0 / 14%);
+}
+
+:root.__unused {
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
