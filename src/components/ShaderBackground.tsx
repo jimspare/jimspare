@@ -42,44 +42,56 @@ export function ShaderBackground() {
 
       void main(){
         vec2 uv = (gl_FragCoord.xy - 0.5*u_res) / u_res.y;
-        float t = u_time * 0.03;
+        float t = u_time * 0.025;
 
-        // drifting flow field
-        vec2 q = uv*1.4 + vec2(t, -t*0.7);
-        float n = fbm(q + fbm(q + t));
+        // slow drifting flow field — gives the texture/grain seen in Framer
+        vec2 q = uv*1.6 + vec2(t*0.6, -t*0.4);
+        float n = fbm(q + fbm(q + t*0.5));
 
-        // three slow-moving soft blobs
-        vec2 b1 = vec2(sin(t*1.3)*0.55, cos(t*1.1)*0.30);
-        vec2 b2 = vec2(cos(t*0.9)*-0.60, sin(t*0.7)*0.35);
-        vec2 b3 = vec2(sin(t*0.6 + 1.7)*0.20, cos(t*0.8 + 0.5)*-0.45);
-        float d1 = exp(-dot(uv-b1, uv-b1) * 2.2);
-        float d2 = exp(-dot(uv-b2, uv-b2) * 2.6);
-        float d3 = exp(-dot(uv-b3, uv-b3) * 3.0);
+        // soft, slow gradient blobs — overlapping to feel like one moving wash
+        vec2 b1 = vec2(sin(t*0.8)*0.55, cos(t*0.6)*0.35);
+        vec2 b2 = vec2(cos(t*0.5)*-0.65, sin(t*0.7)*0.45);
+        vec2 b3 = vec2(sin(t*0.4 + 1.7)*0.25, cos(t*0.55 + 0.5)*-0.55);
+        float d1 = exp(-dot(uv-b1, uv-b1) * 1.6);
+        float d2 = exp(-dot(uv-b2, uv-b2) * 2.0);
+        float d3 = exp(-dot(uv-b3, uv-b3) * 2.4);
 
         // brand palette: slateblue (#6a5acd), deep indigo (#111c4e), royal purple (#3d135f)
         vec3 cSlate  = vec3(0.416, 0.353, 0.804);
         vec3 cIndigo = vec3(0.067, 0.110, 0.306);
         vec3 cPurple = vec3(0.239, 0.075, 0.373);
 
-        vec3 col = vec3(0.0);
-        col += cSlate  * d1 * 1.15;
-        col += cPurple * d2 * 1.00;
-        col += cIndigo * d3 * 1.30;
-        // noise wash tinted toward the palette
-        col += mix(cIndigo, cSlate, n) * n * 0.45;
+        // dark base so the overall palette stays subdued
+        vec3 base = mix(vec3(0.02, 0.015, 0.04), cIndigo * 0.55, 0.55);
+
+        vec3 col = base;
+        col += cSlate  * d1 * 0.42;
+        col += cPurple * d2 * 0.55;
+        col += cIndigo * d3 * 0.60;
+
+        // textured wash — gives the moving grain/streaks
+        float wash = pow(n, 1.3);
+        col += mix(cIndigo, cPurple, wash) * wash * 0.30;
+
+        // subtle vertical streak texture
+        float streak = fbm(vec2(uv.x*8.0, uv.y*1.2 + t*0.8));
+        col += vec3(0.06, 0.04, 0.10) * (streak - 0.5) * 0.6;
 
         // vignette
-        float v = smoothstep(1.4, 0.20, length(uv));
-        col *= v;
+        float v = smoothstep(1.5, 0.15, length(uv));
+        col *= mix(0.75, 1.0, v);
 
-        // grain
-        float g = (hash(gl_FragCoord.xy + u_time) - 0.5) * 0.025;
+        // fine grain
+        float g = (hash(gl_FragCoord.xy + u_time) - 0.5) * 0.03;
         col += g;
 
+        // overall ceiling so it never blows out
+        col = min(col, vec3(0.42, 0.36, 0.55));
 
         gl_FragColor = vec4(col, 1.0);
       }
     `;
+
 
     const compile = (type: number, src: string) => {
       const s = gl.createShader(type)!;

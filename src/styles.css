@@ -1,7 +1,7 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,800&family=Inter:wght@400;500&family=Bungee+Inline&display=swap");
+/* Google Fonts loaded via <link> in __root.tsx for reliability */
 
 @custom-variant dark (&:is(.dark *));
 
