@@ -48,25 +48,34 @@ export function ShaderBackground() {
         vec2 q = uv*1.4 + vec2(t, -t*0.7);
         float n = fbm(q + fbm(q + t));
 
-        // two slow-moving soft blobs
-        vec2 b1 = vec2(sin(t*1.3)*0.45, cos(t*1.1)*0.25);
-        vec2 b2 = vec2(cos(t*0.9)*-0.5, sin(t*0.7)*0.3);
-        float d1 = exp(-dot(uv-b1, uv-b1) * 4.0);
-        float d2 = exp(-dot(uv-b2, uv-b2) * 5.0);
+        // three slow-moving soft blobs
+        vec2 b1 = vec2(sin(t*1.3)*0.55, cos(t*1.1)*0.30);
+        vec2 b2 = vec2(cos(t*0.9)*-0.60, sin(t*0.7)*0.35);
+        vec2 b3 = vec2(sin(t*0.6 + 1.7)*0.20, cos(t*0.8 + 0.5)*-0.45);
+        float d1 = exp(-dot(uv-b1, uv-b1) * 2.2);
+        float d2 = exp(-dot(uv-b2, uv-b2) * 2.6);
+        float d3 = exp(-dot(uv-b3, uv-b3) * 3.0);
 
-        // deep indigo + warm ember accents, kept very subtle on near-black
+        // brand palette: slateblue (#6a5acd), deep indigo (#111c4e), royal purple (#3d135f)
+        vec3 cSlate  = vec3(0.416, 0.353, 0.804);
+        vec3 cIndigo = vec3(0.067, 0.110, 0.306);
+        vec3 cPurple = vec3(0.239, 0.075, 0.373);
+
         vec3 col = vec3(0.0);
-        col += vec3(0.22, 0.28, 0.55) * d1 * 0.55;
-        col += vec3(0.55, 0.30, 0.18) * d2 * 0.40;
-        col += vec3(0.10, 0.12, 0.20) * n * 0.35;
+        col += cSlate  * d1 * 1.15;
+        col += cPurple * d2 * 1.00;
+        col += cIndigo * d3 * 1.30;
+        // noise wash tinted toward the palette
+        col += mix(cIndigo, cSlate, n) * n * 0.45;
 
         // vignette
-        float v = smoothstep(1.3, 0.25, length(uv));
+        float v = smoothstep(1.4, 0.20, length(uv));
         col *= v;
 
         // grain
-        float g = (hash(gl_FragCoord.xy + u_time) - 0.5) * 0.02;
+        float g = (hash(gl_FragCoord.xy + u_time) - 0.5) * 0.025;
         col += g;
+
 
         gl_FragColor = vec4(col, 1.0);
       }
