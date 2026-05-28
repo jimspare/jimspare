@@ -23,9 +23,10 @@ writeFileSync(
         binding: "ASSETS",
         directory: clientDir,
       },
-      name: "tanstack-start-ts",
+      name: "jimspare",
       compatibility_flags: ["nodejs_compat"],
       no_bundle: true,
+      find_additional_modules: true,
       observability: {
         logs: {
           enabled: true,
