@@ -19,8 +19,8 @@ export const Route = createFileRoute("/")({
           "Jim Spare is a strategic transformation leader for AI-era enterprise software businesses.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "/og-image.png" },
-      { property: "og:url", content: "/" },
+      { property: "og:image", content: "https://jimspare.lovable.app/og-image.png" },
+      { property: "og:url", content: "https://jimspare.lovable.app/" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Jim Spare | Strategic growth leader." },
       {
