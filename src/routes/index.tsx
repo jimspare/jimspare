@@ -60,6 +60,7 @@ function Index() {
     <>
       <ShaderBackground />
       <main className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col px-5 pb-16 pt-6 sm:px-8 sm:pt-8 lg:px-12">
+        <h1 className="sr-only">Jim Spare — Strategic Growth Leader</h1>
         {/* Header */}
         <header className="flex items-center gap-4 sm:gap-6">
           <a
