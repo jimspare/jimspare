@@ -91,26 +91,27 @@ function Index() {
             </p>
             <p>
               He currently advises and helps build AI-native businesses through his
-              work with A.Team, and recently served as Chief Product Officer at IDC,
+              work with <strong className="font-semibold text-foreground">A.Team</strong>, and recently served as Chief Product Officer at <strong className="font-semibold text-foreground">IDC</strong>,
               where he led the development of new AI-powered platforms and digital
               products. His work has focused on translating technological change
               into practical business strategy, organizational alignment, and
               commercial growth.
             </p>
             <p>
-              Previously, Jim led Eko through more than 10x revenue growth and the
-              creation of a $250 million joint venture with Walmart. Earlier in his
-              career, he served as CEO of Canesta through its acquisition by
-              Microsoft, where its technology later contributed to products
+              Previously, Jim led <strong className="font-semibold text-foreground">Eko</strong> through more than 10x revenue growth and the
+              creation of a $250 million joint venture with <strong className="font-semibold text-foreground">Walmart</strong>. Earlier in his
+              career, he served as CEO of <strong className="font-semibold text-foreground">Canesta</strong> through its acquisition by
+              <strong className="font-semibold text-foreground"> Microsoft</strong>, where its technology later contributed to products
               including Xbox Kinect and HoloLens.
             </p>
             <p>
               Throughout his career, Jim has worked with leading strategic and
-              financial partners including Walmart, Microsoft, Intel, Samsung, Sony,
-              Honda, Sequoia, NEA, Venrock, and The Carlyle Group. He has also
+              financial partners including <strong className="font-semibold text-foreground">Walmart</strong>, <strong className="font-semibold text-foreground">Microsoft</strong>, <strong className="font-semibold text-foreground">Intel</strong>, <strong className="font-semibold text-foreground">Samsung</strong>, <strong className="font-semibold text-foreground">Sony</strong>,
+              <strong className="font-semibold text-foreground"> Honda</strong>, <strong className="font-semibold text-foreground">Sequoia</strong>, <strong className="font-semibold text-foreground">NEA</strong>, <strong className="font-semibold text-foreground">Venrock</strong>, and <strong className="font-semibold text-foreground">The Carlyle Group</strong>. He has also
               served on the boards of companies acquired by organizations including
-              Morgan Stanley, Microsoft, Twitter, and Foxconn.
+              <strong className="font-semibold text-foreground"> Morgan Stanley</strong>, <strong className="font-semibold text-foreground">Microsoft</strong>, <strong className="font-semibold text-foreground">Twitter</strong>, and <strong className="font-semibold text-foreground">Foxconn</strong>.
             </p>
+
             <p>
               With many years of experience in Silicon Valley and now based in New
               York City, Jim holds a BS in Electrical Engineering from NC State and
