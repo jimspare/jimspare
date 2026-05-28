@@ -138,7 +138,7 @@ function Index() {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ fontFamily: "var(--font-mark)" }}
-                className="text-xl tracking-wide text-[oklch(0.92_0_0)] transition-opacity hover:opacity-80 sm:text-2xl"
+                className="text-2xl leading-none tracking-[0.04em] text-[oklch(0.92_0_0)] transition-opacity hover:opacity-80 sm:text-[28px]"
               >
                 Buildacious
               </a>
