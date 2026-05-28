@@ -26,12 +26,19 @@ writeFileSync(
       name: "tanstack-start-ts",
       compatibility_flags: ["nodejs_compat"],
       no_bundle: true,
+      observability: {
+        logs: {
+          enabled: true,
+          invocation_logs: true,
+        },
+      },
       rules: [
         {
           type: "ESModule",
           globs: ["**/*.mjs", "**/*.js"],
         },
       ],
+
     },
     null,
     2,
