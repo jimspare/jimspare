@@ -36,7 +36,7 @@ writeFileSync(
       rules: [
         {
           type: "ESModule",
-          globs: ["**/*.mjs", "**/*.js"],
+          globs: ["**/*.mjs", "**/*.js", "**/h3-v2", "**/h3"],
         },
       ],
 
