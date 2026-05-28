@@ -84,6 +84,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:description", content: "Jim Spare is a strategic transformation leader for AI-era enterprise software businesses." },
       { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/XXp0irHoGpQfNgGLxAF5u65wqXd2/social-images/social-1779929732962-SocialCard_-_JimSpare.webp" },
       { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/XXp0irHoGpQfNgGLxAF5u65wqXd2/social-images/social-1779929732962-SocialCard_-_JimSpare.webp" },
+      { name: "google-site-verification", content: "Ro7BGraOF6uSFjpzguVOIreTsO6Ej9jp_XPSuPE-0Io" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
