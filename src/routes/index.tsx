@@ -89,7 +89,7 @@ function Index() {
 
           <div
             style={{ fontFamily: "var(--font-body)" }}
-            className="max-w-2xl space-y-5 text-[15px] leading-relaxed text-foreground/95 sm:text-base sm:leading-[1.7]"
+            className="max-w-2xl space-y-5 text-[14px] font-medium leading-relaxed text-foreground sm:text-[15px] sm:leading-[1.7]"
           >
             <p>
               <a
