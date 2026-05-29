@@ -148,8 +148,21 @@
     border-color: var(--color-border);
   }
 
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-feature-settings: "kern", "liga", "calt";
+  }
+
+  strong, b {
+    font-weight: 700;
   }
 }
