@@ -37,9 +37,27 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
   });
 }
 
+function getCanonicalRedirectUrl(request: Request): string | undefined {
+  const url = new URL(request.url);
+  const hostname = url.hostname.toLowerCase();
+  const shouldRedirectHost = hostname === "www.jimspare.com";
+  const shouldRedirectProtocol = hostname.endsWith("jimspare.com") && url.protocol !== "https:";
+
+  if (!shouldRedirectHost && !shouldRedirectProtocol) return undefined;
+
+  url.protocol = "https:";
+  url.hostname = "jimspare.com";
+  return url.toString();
+}
+
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
+      const redirectUrl = getCanonicalRedirectUrl(request);
+      if (redirectUrl) {
+        return Response.redirect(redirectUrl, 301);
+      }
+
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
       return await normalizeCatastrophicSsrResponse(response);
