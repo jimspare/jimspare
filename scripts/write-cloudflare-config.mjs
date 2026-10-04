@@ -1,8 +1,18 @@
-import { existsSync, mkdirSync, writeFileSync } from "node:fs";
+import { cpSync, existsSync, mkdirSync, writeFileSync } from "node:fs";
 
 const serverDir = "dist/server";
 const clientDir = "../client";
 const candidates = ["index.mjs", "server.js"];
+
+// On Cloudflare CI, Nitro emits to `.output/` instead of `dist/`.
+// Mirror it into `dist/` so the deploy command (--config dist/server/wrangler.json) works everywhere.
+if (!candidates.some((file) => existsSync(`${serverDir}/${file}`)) && existsSync(".output/server")) {
+  cpSync(".output/server", serverDir, { recursive: true });
+  if (existsSync(".output/public")) {
+    cpSync(".output/public", "dist/client", { recursive: true });
+  }
+}
+
 const main = candidates.find((file) => existsSync(`${serverDir}/${file}`));
 
 if (!main) {
