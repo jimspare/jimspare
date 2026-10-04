@@ -100,19 +100,30 @@ function Index() {
               >
                 Jim Spare
               </a>{" "}
-              is a growth-stage technology executive with deep experience leading
-              companies through strategic inflection points, transformation, and
-              growth. Over the course of his career, he has helped build and scale
-              disruptive technology businesses across enterprise software, AI,
-              media, data, and emerging technologies.
+              is the CEO of{" "}
+              <strong className="font-bold text-foreground">Rational Dynamics</strong>,
+              which builds AI reasoning infrastructure that turns an organization's
+              most valuable human judgment into systems whose work can be measured,
+              verified, and trusted, and that improve over time. The company's
+              initial focus is the world's leading institutional asset allocators —
+              sovereign wealth funds, pension funds, endowments, insurance
+              companies, and general partners that steward trillions of dollars in
+              capital.
             </p>
             <p>
-              He currently advises and helps build AI-native businesses through his
-              work with <strong className="font-bold text-foreground">A.Team</strong>, and recently served as Chief Product Officer at <strong className="font-bold text-foreground">IDC</strong>,
-              where he led the development of new AI-powered platforms and digital
-              products. His work has focused on translating technological change
-              into practical business strategy, organizational alignment, and
-              commercial growth.
+              Jim has deep experience leading companies through strategic inflection
+              points, transformation, and growth. Over the course of his career, he
+              has helped build and scale disruptive technology businesses across
+              enterprise software, AI, media, data, and emerging technologies.
+            </p>
+            <p>
+              Prior to Rational Dynamics, he advised and helped build an enterprise
+              AI solutions B2B business line through his work as Executive Advisor
+              with <strong className="font-bold text-foreground">A.Team</strong>, and before that served as Chief Product Officer at{" "}
+              <strong className="font-bold text-foreground">IDC</strong>, where he led the
+              development of new AI-powered platforms and digital products. His work
+              has focused on translating technological change into practical
+              business strategy, organizational alignment, and commercial growth.
             </p>
             <p>
               Previously, Jim led <strong className="font-bold text-foreground">Eko</strong> through more than 10x revenue growth and the
