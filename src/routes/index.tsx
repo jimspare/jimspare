@@ -101,7 +101,15 @@ function Index() {
                 Jim Spare
               </a>{" "}
               is the CEO of{" "}
-              <strong className="font-bold text-foreground">Rational Dynamics</strong>,
+              <a
+                href="https://www.rationaldynamics.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <strong className="font-bold text-foreground">
+                  Rational Dynamics
+                </strong>
+              </a>,
               which builds AI reasoning infrastructure that turns an organization's
               most valuable human judgment into systems whose work can be measured,
               verified, and trusted, and that improve over time. The company's
